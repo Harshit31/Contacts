@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UIActivityIndicatorView().startAnimating()
+        APIManager.getContactsList().done { (list) in
+            print(list)
+        }.catch { error in
+            print(error)
+        }.finally {
+            
+        }
+        
+        
         return true
     }
 
